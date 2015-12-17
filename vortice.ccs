@@ -3,8 +3,31 @@
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
-        <Project Name="MainScene.csd" Type="Scene" />
-        <Image Name="HelloWorld.png" />
+        <Folder Name="visualcontent">
+          <Folder Name="ui">
+            <Image Name="button1.png" />
+            <Image Name="button2.png" />
+            <Image Name="button3.png" />
+            <Image Name="dialogbox01.png" />
+            <Image Name="popup_bg.png" />
+          </Folder>
+          <Folder Name="comic_characters">
+            <Image Name="daniel01.png" />
+            <Image Name="samantha01.png" />
+          </Folder>
+          <Folder Name="terrains" />
+          <Folder Name="brands">
+            <Image Name="cocos_splashscreen.png" />
+            <Image Name="el_splashscreen.png" />
+          </Folder>
+          <Folder Name="various">
+            <Image Name="whitedot.png" />
+          </Folder>
+          <Folder Name="particles">
+            <Image Name="fire_particle01.png" />
+          </Folder>
+        </Folder>
+        <Project Name="sc_initial.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>

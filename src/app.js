@@ -1,5 +1,5 @@
 
-var HelloWorldLayer = cc.Layer.extend({
+var InitdLayer = cc.Layer.extend({
     sprite:null,
     ctor:function () {
         //////////////////////////////
@@ -12,17 +12,17 @@ var HelloWorldLayer = cc.Layer.extend({
         // ask the window size
         var size = cc.winSize;
 
-        var mainscene = ccs.load(res.MainScene_json);
-        this.addChild(mainscene.node);
+        var initial_scene = ccs.load(res.sc_initial_json);
+        this.addChild(initial_scene.node);
 
         return true;
     }
 });
 
-var HelloWorldScene = cc.Scene.extend({
+var InitScene = cc.Scene.extend({
     onEnter:function () {
         this._super();
-        var layer = new HelloWorldLayer();
+        var layer = new InitdLayer();
         this.addChild(layer);
     }
 });
