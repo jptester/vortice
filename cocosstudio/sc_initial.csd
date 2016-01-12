@@ -76,7 +76,7 @@
       </Animation>
       <AnimationList>
         <AnimationInfo Name="main_animation" StartIndex="0" EndIndex="240">
-          <RenderColor A="150" R="240" G="230" B="140" />
+          <RenderColor A="255" R="240" G="230" B="140" />
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Scene" Tag="3" ctype="GameNodeObjectData">
