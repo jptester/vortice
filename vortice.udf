@@ -28,9 +28,9 @@
     <Item Key="TabsParamsKey">
       <Value ctype="TabsInfo">
         <OpenedDocuments>
-          <FilePathData Path="sc_initial.csd" />
+          <FilePathData Path="sc_main_menu.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="sc_initial.csd" />
+        <ActiveDocument Path="sc_main_menu.csd" />
       </Value>
     </Item>
   </Properties>

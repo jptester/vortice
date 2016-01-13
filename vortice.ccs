@@ -10,6 +10,8 @@
             <Image Name="button3.png" />
             <Image Name="dialogbox01.png" />
             <Image Name="popup_bg.png" />
+            <Image Name="button3_disabled.png" />
+            <Image Name="button3_pressed.png" />
           </Folder>
           <Folder Name="comic_characters">
             <Image Name="daniel01.png" />
@@ -26,8 +28,12 @@
           <Folder Name="particles">
             <Image Name="fire_particle01.png" />
           </Folder>
+          <Folder Name="backgrounds">
+            <Image Name="bg1.jpg" />
+          </Folder>
         </Folder>
         <Project Name="sc_initial.csd" Type="Scene" />
+        <Project Name="sc_main_menu.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>
