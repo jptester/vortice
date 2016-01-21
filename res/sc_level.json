@@ -1,0 +1,116 @@
+{
+  "ID": "a23da831-2145-45a6-8efd-cea9b128e304",
+  "Version": "2.3.3.0",
+  "Name": "sc_level",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 28,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "visualcontent/various/whitedot.png",
+              "Plist": ""
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 29,
+            "ActionTag": 648165140,
+            "Size": {
+              "X": 960.0,
+              "Y": 640.0
+            },
+            "Name": "Image_1",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "visualcontent/levels/level01.tmx",
+              "Plist": ""
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": 851.843,
+              "Y": -212.4815
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.8873,
+              "Y": -0.332
+            },
+            "PreSize": {
+              "X": 0.5333,
+              "Y": 1.5
+            },
+            "LeftMargin": 851.843,
+            "RightMargin": -403.843,
+            "TopMargin": -107.5184,
+            "BottomMargin": -212.4815,
+            "Tag": 31,
+            "ActionTag": -1133111122,
+            "Size": {
+              "X": 512.0,
+              "Y": 960.0
+            },
+            "Name": "tm_map",
+            "ctype": "GameMapObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "visualcontent/levels/level01.tmx",
+        "visualcontent/terrains/isometric_grass_and_water.png",
+        "visualcontent/various/whitedot.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

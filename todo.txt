@@ -1,0 +1,2 @@
+
+1. Generic windows so content will be created from CocosStudio
