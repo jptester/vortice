@@ -106,3 +106,15 @@ el.gActivationEvent = function ( sender, type ) {
 	return bActivation;
 	*/
 }
+
+
+//
+// This function prints an object
+//
+el.gPrintObject = function ( object ) {
+	var output = 'Object ->\n' ;
+	for (var property in object) {
+	  output += property + ': ' + object[property]+'; \n';
+	}
+	el.gELLog(output);
+}

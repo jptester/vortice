@@ -35,20 +35,26 @@ el.InitLayer = cc.Layer.extend({
 			var action = json.action;
 			if (action) {
 				
-				node.runAction(action);
-				
-				// If there is a valid function for last frame animation
-				if ( !bLoopAnimation && lastFrameCallFunc ) {
-					action.setLastFrameCallFunc(lastFrameCallFunc);
+				// action must be instance of cc.Action
+				if ( action instanceof ccs.ActionTimeline ) {
+					node.runAction(action);
+					
+					// If there is a valid function for last frame animation
+					if ( !bLoopAnimation && lastFrameCallFunc ) {
+						action.setLastFrameCallFunc(lastFrameCallFunc);
+					}
+					else {
+						if ( bLoopAnimation && lastFrameCallFunc ) {
+							el.gELLog("Loop will not make possible to play last frame call function for scene in file: " + sFile);
+						}
+					}
+
+					// Play animation
+					action.gotoFrameAndPlay(0, action.getDuration(), bLoopAnimation); //play animation
 				}
 				else {
-					if ( bLoopAnimation && lastFrameCallFunc ) {
-						el.gELLog("Loop will not make possible to play last frame call function for scene in file: " + sFile);
-					}
+					el.gELLog("Animation for scene file: " + sFile + " not a compatible format or type");
 				}
-
-				// Play animation
-				action.gotoFrameAndPlay(action._startFrame, action.endFrame, bLoopAnimation); //play animation
 			}
 			else {
 				el.gELLog("Missing animation for scene file: " + sFile);
@@ -115,7 +121,14 @@ el.MainMenuScene = cc.Scene.extend({
 		// Get & set quit button
 		currentButton = el.gGetButtonInInnerTreeByName(this, sButtons.btnQuit);
 		if ( currentButton != undefined ) {
-			currentButton.addTouchEventListener(this.quitGame, this);
+			// set disable if in browser
+			if ( !cc.sys.isNative ) {
+				currentButton.setEnabled(false);
+			}
+			// Otherwise allow to "quit" the game (exit program)
+			else {
+				currentButton.addTouchEventListener(this.quitGame, this);
+			}
 		}		
 		
 	},
