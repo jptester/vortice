@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "name": "vortice",
-  "description": "vortice",
+  "name": "Vortice",
+  "description": "Turn based strategy adult game",
   "launch_path": "/index.html",
   "icons": {
     "128": "/res/el_icon.ico"
