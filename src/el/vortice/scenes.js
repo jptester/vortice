@@ -1,11 +1,17 @@
-/** 
-*
-*  Generic Screens
-*  File: scenes.js
-*  Creator : JP
-*  Date: 14/01/2016
-*/
+// 
+//
+//  Generic Screens
+//  File: scenes.js
+//  Creator : JP
+//  Date: 14/01/2016
+//
 
+//
+// The namespace of Entretenimiento Lobo
+// @namespace
+// @name el
+//
+var el = el || {};
 
 //
 //  Splash screen
@@ -116,14 +122,26 @@ el.MainMenuScene = cc.Scene.extend({
 		var currentButton = el.gGetButtonInInnerTreeByName(this, sButtons.btnStart);
 		if ( currentButton != undefined ) {
 			currentButton.addTouchEventListener(this.newGame, this);
+			currentButton.setTitleText(el.gLoc("btn_start_game"));
+		};
+
+		// Get & set continue button
+		var currentButton = el.gGetButtonInInnerTreeByName(this, sButtons.btnContinue);
+		if ( currentButton != undefined ) {
+			currentButton.addTouchEventListener(this.continueGame, this);
+			currentButton.setTitleText(el.gLoc("continue_game"));
 		};
 
 		// Get & set quit button
 		currentButton = el.gGetButtonInInnerTreeByName(this, sButtons.btnQuit);
 		if ( currentButton != undefined ) {
+			// Set text
+			currentButton.setTitleText(el.gLoc("quit_game"));
+
 			// set disable if in browser
 			if ( !cc.sys.isNative ) {
 				currentButton.setEnabled(false);
+				currentButton.setBright(false);
 			}
 			// Otherwise allow to "quit" the game (exit program)
 			else {
@@ -136,7 +154,14 @@ el.MainMenuScene = cc.Scene.extend({
 	// Init new game if selected
 	newGame:function ( sender, type ) {
 		if ( el.gActivationEvent(sender, type) ) {
-			cc.director.runScene(new cc.TransitionFade(1, new el.MainMenuScene()));
+			cc.director.runScene(new cc.TransitionFade(1, new el.ComicScreen()));
+		}
+	},
+	
+	// Continue new game if selected
+	continueGame:function ( sender, type ) {
+		if ( el.gActivationEvent(sender, type) ) {
+			cc.director.runScene(new cc.TransitionFade(1, new el.GenericScreen(this)));
 		}
 	},
 	
@@ -154,4 +179,42 @@ el.MainMenuScene = cc.Scene.extend({
 			}
 		}
 	}
+});
+
+
+//
+// Generic screen - Empty generic screen
+// Creator : JP
+// Date: 20/01/2016
+//
+el.GenericScreen = cc.Scene.extend({
+	mCallerScene:null,
+	ctor:function (callerScene) {
+        this._super();
+		this.mCallerScene = callerScene;
+	},
+    onEnter:function () {
+        this._super();
+
+		// info variable
+        winSize = cc.director.getWinSize();
+		
+        var layer = new el.InitLayer(res.sc_generic_json, false, false, null);		
+		this.addChild(layer);		
+		
+		// Back button
+		var returnButton = ccui.Button.create(res.img_btnButton01_nrm, res.img_btnButton01_psh, res.img_btnButton01_dsb);
+		returnButton.addTouchEventListener(this.returnToPreviousScene, this);
+		returnButton.x = winSize.width / 2;
+	    returnButton.y = winSize.height / 2;
+		layer.addChild(returnButton,1);
+    },
+
+	// Return to previous scene
+	returnToPreviousScene:function ( sender, type ) {		
+		// if event activated
+		if ( this.mCallerScene != undefined && this.mCallerScene instanceof cc.Scene && el.gActivationEvent(sender, type) ) {
+			cc.director.runScene(new cc.TransitionFade(1, this.mCallerScene));
+		}
+	}	
 });

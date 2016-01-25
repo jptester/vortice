@@ -1,16 +1,16 @@
-/** 
-*
-*  Generic Utilities
-*  File: utilities.js
-*  Creator : JP
-*  Date: 20/01/2016
-*/
+// 
+//
+//  Generic Utilities
+//  File: utilities.js
+//  Creator : JP
+//  Date: 20/01/2016
+//
 
-/**
- * The namespace of Entretenimiento Lobo
- * @namespace
- * @name el
-*/
+//
+// The namespace of Entretenimiento Lobo
+// @namespace
+// @name el
+//
 var el = el || {};
 
 //

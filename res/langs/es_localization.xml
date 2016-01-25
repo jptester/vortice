@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>jp</Author>
+  <LastAuthor>jp</LastAuthor>
+  <Created>2016-01-22T20:31:24Z</Created>
+  <LastSaved>2016-01-22T21:25:45Z</LastSaved>
+  <Version>15.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>8304</WindowHeight>
+  <WindowWidth>18564</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Hoja1">
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="10" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="62.400000000000006"
+   ss:DefaultRowHeight="14.4">
+   <Row ss:Index="2">
+    <Cell><Data ss:Type="String">Declaraciones</Data></Cell>
+   </Row>
+   <Row ss:Index="4">
+    <Cell><Data ss:Type="String">UI</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">btn_start_game</Data></Cell>
+    <Cell><Data ss:Type="String">Inicio</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">continue_game</Data></Cell>
+    <Cell><Data ss:Type="String">Continuar</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">extras_game</Data></Cell>
+    <Cell><Data ss:Type="String">Extras</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">options_game</Data></Cell>
+    <Cell><Data ss:Type="String">Opciones</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">credits_game</Data></Cell>
+    <Cell><Data ss:Type="String">Créditos</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">quit_game</Data></Cell>
+    <Cell><Data ss:Type="String">Salir</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>4</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
