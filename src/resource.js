@@ -11,6 +11,9 @@ var res = {
 	img_btnButton01_nrm : "res/visualcontent/ui/button3.png",
 	img_btnButton01_psh : "res/visualcontent/ui/button3_pressed.png",
 	img_btnButton01_dsb : "res/visualcontent/ui/button3_disabled.png",
+
+	// Levels 
+	strategy_level_01 : "res/visualcontent/levels/level01.tmx",
 };
 
 var g_resources = [];

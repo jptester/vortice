@@ -2,11 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>btn_backto_main_menu</key><string>Regresar menú principal</string>
+	<key>btn_continue_game</key><string>Continuar</string>
+	<key>btn_credits_game</key><string>Créditos</string>
+	<key>btn_extras_game</key><string>Extras</string>
+	<key>btn_options_game</key><string>Opciones</string>
+	<key>btn_quit_game</key><string>Salir</string>
 	<key>btn_start_game</key><string>Inicio</string>
-	<key>continue_game</key><string>Continuar</string>
-	<key>credits_game</key><string>Créditos</string>
-	<key>extras_game</key><string>Extras</string>
-	<key>options_game</key><string>Opciones</string>
-	<key>quit_game</key><string>Salir</string>
 </dict>
 </plist>

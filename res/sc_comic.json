@@ -71,8 +71,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 285.0,
-              "Y": 428.0
+              "X": 285.024,
+              "Y": 427.968
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -90,10 +90,10 @@
               "X": 0.3844,
               "Y": 0.6328
             },
-            "LeftMargin": 100.5,
-            "RightMargin": 490.5,
-            "TopMargin": 9.5,
-            "BottomMargin": 225.5,
+            "LeftMargin": 100.524,
+            "RightMargin": 490.476,
+            "TopMargin": 9.532,
+            "BottomMargin": 225.468,
             "Tag": 19,
             "ActionTag": 1839689300,
             "Size": {
@@ -118,8 +118,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 685.0,
-              "Y": 428.0
+              "X": 684.96,
+              "Y": 427.968
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -137,17 +137,17 @@
               "X": 0.3844,
               "Y": 0.6328
             },
-            "LeftMargin": 500.5,
-            "RightMargin": 90.5,
-            "TopMargin": 9.5,
-            "BottomMargin": 225.5,
+            "LeftMargin": 500.46,
+            "RightMargin": 90.54,
+            "TopMargin": 9.532,
+            "BottomMargin": 225.468,
             "Tag": 20,
             "ActionTag": -1946780260,
             "Size": {
               "X": 369.0,
               "Y": 405.0
             },
-            "Name": "sp_left_char",
+            "Name": "sp_right_char",
             "ctype": "SpriteObjectData"
           },
           {
@@ -242,8 +242,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 895.5,
-              "Y": 230.0
+              "X": 895.488,
+              "Y": 230.016
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -265,15 +265,15 @@
               "X": 0.0854,
               "Y": 0.1094
             },
-            "LeftMargin": 854.5,
-            "RightMargin": 23.5,
-            "TopMargin": 375.0,
-            "BottomMargin": 195.0,
+            "LeftMargin": 854.496,
+            "RightMargin": 23.52,
+            "TopMargin": 374.976,
+            "BottomMargin": 195.008,
             "Tag": 22,
             "ActionTag": -651619571,
             "Size": {
-              "X": 82.0,
-              "Y": 70.0
+              "X": 81.984,
+              "Y": 70.016
             },
             "Name": "btn_skip",
             "ctype": "ButtonObjectData"
@@ -323,8 +323,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 895.5,
-              "Y": 41.0
+              "X": 895.488,
+              "Y": 41.024
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -346,15 +346,15 @@
               "X": 0.0854,
               "Y": 0.1094
             },
-            "LeftMargin": 854.5,
-            "RightMargin": 23.5,
-            "TopMargin": 564.0,
-            "BottomMargin": 6.0,
+            "LeftMargin": 854.496,
+            "RightMargin": 23.52,
+            "TopMargin": 563.968,
+            "BottomMargin": 6.016,
             "Tag": 23,
             "ActionTag": -659868142,
             "Size": {
-              "X": 82.0,
-              "Y": 70.0
+              "X": 81.984,
+              "Y": 70.016
             },
             "Name": "btn_next",
             "ctype": "ButtonObjectData"
@@ -404,8 +404,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 895.5,
-              "Y": 590.0
+              "X": 895.488,
+              "Y": 590.016
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -427,15 +427,15 @@
               "X": 0.0854,
               "Y": 0.1094
             },
-            "LeftMargin": 854.5,
-            "RightMargin": 23.5,
-            "TopMargin": 15.0,
-            "BottomMargin": 555.0,
+            "LeftMargin": 854.496,
+            "RightMargin": 23.52,
+            "TopMargin": 14.976,
+            "BottomMargin": 555.008,
             "Tag": 24,
             "ActionTag": 589363285,
             "Size": {
-              "X": 82.0,
-              "Y": 70.0
+              "X": 81.984,
+              "Y": 70.016
             },
             "Name": "btn_options",
             "ctype": "ButtonObjectData"
@@ -483,14 +483,14 @@
               "X": 0.8021,
               "Y": 0.25
             },
-            "LeftMargin": 95.0,
-            "RightMargin": 95.0,
+            "LeftMargin": 94.992,
+            "RightMargin": 94.992,
             "TopMargin": 432.0,
             "BottomMargin": 48.0,
             "Tag": 27,
             "ActionTag": 583590970,
             "Size": {
-              "X": 770.0,
+              "X": 770.016,
               "Y": 160.0
             },
             "Name": "txt_dialog",

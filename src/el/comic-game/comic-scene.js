@@ -18,14 +18,15 @@ var el = el || {};
 // Creator : JP
 // Date: 20/01/2016
 //
-el.ComicScreen = cc.Scene.extend({
-	//ctor:function (callerScene) {
+el.ComicScene = cc.Scene.extend({
+	
+	//ctor:function () {
     //    this._super();
 	//},
     onEnter:function () {
         this._super();
 
-        var layer = new el.InitLayer(res.sc_comic_json, false, false, null);		
+        var layer = new el.InitLayer(res.sc_comic_json, true, false, null);		
 		this.addChild(layer);
 	}
 });

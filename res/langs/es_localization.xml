@@ -32,40 +32,66 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s62">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Underline="Single"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Hoja1">
-  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="10" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="62.400000000000006"
-   ss:DefaultRowHeight="14.4">
-   <Row ss:Index="2">
+   ss:DefaultRowHeight="14.55">
+   <Row ss:AutoFitHeight="0"/>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Declaraciones</Data></Cell>
    </Row>
-   <Row ss:Index="4">
+   <Row ss:Index="4" ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">UI</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">btn_start_game</Data></Cell>
     <Cell><Data ss:Type="String">Inicio</Data></Cell>
    </Row>
-   <Row>
-    <Cell><Data ss:Type="String">continue_game</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">btn_continue_game</Data></Cell>
     <Cell><Data ss:Type="String">Continuar</Data></Cell>
    </Row>
-   <Row>
-    <Cell><Data ss:Type="String">extras_game</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">btn_extras_game</Data></Cell>
     <Cell><Data ss:Type="String">Extras</Data></Cell>
    </Row>
-   <Row>
-    <Cell><Data ss:Type="String">options_game</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">btn_options_game</Data></Cell>
     <Cell><Data ss:Type="String">Opciones</Data></Cell>
    </Row>
-   <Row>
-    <Cell><Data ss:Type="String">credits_game</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">btn_credits_game</Data></Cell>
     <Cell><Data ss:Type="String">Créditos</Data></Cell>
    </Row>
-   <Row>
-    <Cell><Data ss:Type="String">quit_game</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">btn_quit_game</Data></Cell>
     <Cell><Data ss:Type="String">Salir</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">btn_backto_main_menu</Data></Cell>
+    <Cell><Data ss:Type="String">Regresar menú principal</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s62"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Textos</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">txt_intro_01</Data></Cell>
+    <Cell><Data ss:Type="String">Es una noche fría de verano… El veloz murciélago vuela por la mañana y come muchas frutas e insectos. Los leones gobiernan la jungla africana, es una noche de locura. Falta agua para pensar</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">txt_intro_02</Data></Cell>
+    <Cell><Data ss:Type="String">Este es el segundo diálogo de este juego, hay mucho por hacer y poco tiempo, veamos cómo optimizamos</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s62"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -74,11 +100,18 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>90</HorizontalResolution>
+    <VerticalResolution>90</VerticalResolution>
+   </Print>
    <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>4</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
