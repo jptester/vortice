@@ -77,7 +77,7 @@ el.LevelScene = cc.Scene.extend({
 			if ( bg != el.Game.removeCommand ) {
 				var size = cc.winSize;
 				this._sc_background = new cc.Sprite(bg);
-				this._sc_background.setAnchorPoint(new cc.Point(0,0));
+				this._sc_background.setAnchorPoint(new cc.p(0,0));
 				this._sc_background.setPosition(0, 0);
 				var contentSize = this._sc_background.getContentSize();
 				this._sc_background.setScale( size.width / contentSize.width, size.height / contentSize.height );
