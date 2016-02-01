@@ -69,9 +69,18 @@ cc.game.onStart = function(){
 	
 	// Load localization
 	el.gLoadLoc("es");
-	
+
     //load resources
     cc.LoaderScene.preload(g_resources, function () {
+
+		// Load game (preferences and current game state)
+		if ( el.Game.getInstance().loadGame() ) {
+			el.gELLog("Game successfully loaded"); 
+		}
+		
+		// Play intro music
+		cc.audioEngine.playMusic(res.music_init, true);
+
 		// if debug skip to x scene
 		if ( cc.game.config.debugMode == 1 ){
 			cc.director.runScene(new el.MainMenuScene());

@@ -174,14 +174,15 @@ el.MainMenuScene = cc.Scene.extend({
 	// Init new game if selected
 	newGame:function ( sender, type ) {
 		if ( el.gActivationEvent(sender, type) ) {
-			cc.director.runScene(new cc.TransitionFade(1, el.GameLevelManager.getInstance().loadCurrentScene(false)));
+			cc.director.runScene(new cc.TransitionFade(1, el.GameLevelManager.getInstance().loadCurrentScene()));
 		}
 	},
 	
 	// Continue new game if selected
 	continueGame:function ( sender, type ) {
 		if ( el.gActivationEvent(sender, type) ) {
-			cc.director.runScene(new cc.TransitionFade(1, el.GameLevelManager.getInstance().loadCurrentScene(true)));
+			var currentGame = el.Game.getInstance().loadCurrentSavedGameLevel();
+			cc.director.runScene(new cc.TransitionFade(1, el.GameLevelManager.getInstance().loadCurrentScene(currentGame)));
 		}
 	},
 	

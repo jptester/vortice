@@ -20,11 +20,14 @@ var el = el || {};
 el.LevelContent = el.Class.extend({
 	// private properties
 	_id: null,
-	_version: 0,
+	_version: 1,
 	_bHidden: null,
 	_background: null,
+	_bg_cocostudiocontent: null,
+	_fg_cocostudiocontent: null,
 	_bg_sound: null,
 	_bg_music: null,
+	_currentGame: null,
 	
 	// Constructor for level
 	ctor:function (bHidden, id, content) {
@@ -36,6 +39,16 @@ el.LevelContent = el.Class.extend({
 		// Get image background
 		if ( content.background != undefined && content.background.length > 0) {
 			this._background = content.background;
+		}
+
+		// Get background cocos studio content
+		if ( content.bg_cocostudiocontent != undefined && content.bg_cocostudiocontent.length > 0) {
+			this._bg_cocostudiocontent = content.bg_cocostudiocontent;
+		}
+
+		// Get front content cocos studio content
+		if ( content.fg_cocostudiocontent != undefined && content.fg_cocostudiocontent.length > 0) {
+			this._fg_cocostudiocontent = content.fg_cocostudiocontent;
 		}
 
 		// Get music and sound background
@@ -55,12 +68,49 @@ el.LevelContent = el.Class.extend({
 	},
 	
 	// Return content ID
-	getContentCode: function() {
+	getID: function() {
 		return this._id;
 	},
 	
 	// Get version
 	getVersion: function() {
 		return this._version;
-	}
+	},
+	
+	// level content does not have content
+	findContentByCode: function(contentID) {
+		// if this content code is the same as content ID return this content
+		return null;
+	},
+	
+	// returns a corresponding scene type
+	getNewScene: function(currentGame) {		
+		// if this content code is the same as content ID return this content
+		return new el.LevelScene(this);
+	},
+		
+	// Get info from content
+	getBackground: function () {
+		return this._background;
+	},
+
+	// Get info from cocos studio content
+	getBgCocosStudioContent: function () {
+		return this._bg_cocostudiocontent;
+	},
+	
+	// Get info from cocos studio content
+	getFgCocosStudioContent: function () {
+		return this._fg_cocostudiocontent;
+	},
+
+	// Get info from content
+	getBGMusic: function () {
+		return this._bg_music;
+	},
+
+	// Get info from content
+	getBgFxSound: function () {
+		return this._bg_sound;
+	},
 });

@@ -1,17 +1,35 @@
 <Solution>
-  <PropertyGroup Name="vortice" Version="2.3.3.0" Type="CocosStudio" />
+  <PropertyGroup Name="vortice" Version="3.10.0.0" Type="CocosStudio" />
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Folder Name="visualcontent">
+          <Folder Name="backgrounds">
+            <Image Name="bg1.jpg" />
+          </Folder>
+          <Folder Name="brands">
+            <Image Name="cocos_splashscreen.png" />
+            <Image Name="el_splashscreen.png" />
+          </Folder>
+          <Folder Name="comic_characters">
+            <Image Name="char01.png" />
+            <Image Name="char02.png" />
+            <Image Name="daniel01.png" />
+            <Image Name="samantha01.png" />
+          </Folder>
+          <Folder Name="levels">
+            <TmxFile Name="level01.tmx" />
+          </Folder>
+          <Folder Name="particles">
+            <Image Name="fire_particle01.png" />
+          </Folder>
+          <Folder Name="terrains" />
           <Folder Name="ui">
             <Image Name="button1.png" />
             <Image Name="button2.png" />
             <Image Name="button3.png" />
-            <Image Name="popup_bg.png" />
             <Image Name="button3_disabled.png" />
             <Image Name="button3_pressed.png" />
-            <Image Name="dialogbox01.png" />
             <Image Name="button4.png" />
             <Image Name="button4_disabled.png" />
             <Image Name="button4_pressed.png" />
@@ -21,36 +39,19 @@
             <Image Name="button6.png" />
             <Image Name="button6_disabled.png" />
             <Image Name="button6_pressed.png" />
-          </Folder>
-          <Folder Name="comic_characters">
-            <Image Name="daniel01.png" />
-            <Image Name="samantha01.png" />
-            <Image Name="char01.png" />
-            <Image Name="char02.png" />
-          </Folder>
-          <Folder Name="terrains" />
-          <Folder Name="brands">
-            <Image Name="cocos_splashscreen.png" />
-            <Image Name="el_splashscreen.png" />
+            <Image Name="dialogbox01.png" />
+            <Image Name="popup_bg.png" />
           </Folder>
           <Folder Name="various">
             <Image Name="whitedot.png" />
           </Folder>
-          <Folder Name="particles">
-            <Image Name="fire_particle01.png" />
-          </Folder>
-          <Folder Name="backgrounds">
-            <Image Name="bg1.jpg" />
-          </Folder>
-          <Folder Name="levels">
-            <TmxFile Name="level01.tmx" />
-          </Folder>
         </Folder>
-        <Project Name="sc_initial.csd" Type="Scene" />
-        <Project Name="sc_main_menu.csd" Type="Scene" />
         <Project Name="sc_comic.csd" Type="Scene" />
-        <Project Name="sc_level.csd" Type="Scene" />
         <Project Name="sc_generic.csd" Type="Scene" />
+        <Project Name="sc_initial.csd" Type="Scene" />
+        <Project Name="sc_level.csd" Type="Scene" />
+        <Project Name="sc_main_menu.csd" Type="Scene" />
+        <Project Name="sc_comic2.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>

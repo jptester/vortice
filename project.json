@@ -20,15 +20,16 @@
 		"res/visualcontent/levels/level01.js",
 		"res/levels.js",
         
-		"src/el/engine/class.js",
 		"src/el/engine/utilities.js",
+		"src/el/engine/class.js",
+		"src/el/engine/persistence.js",
+		"src/el/engine/game.js",
 		"src/el/engine/localizator.js",
 		"src/el/engine/level-content.js",
+		"src/el/engine/level-scene.js",
 		
 		"src/el/comic-game/comic-content.js",
-
 		"src/el/engine/game-levels-manager.js",
-		
 		"src/el/comic-game/comic-scene.js",
 		
 		"src/el/vortice/scenes.js"

@@ -18,15 +18,19 @@ var el = el || {};
 // Creator : JP
 // Date: 20/01/2016
 //
-el.ComicScene = cc.Scene.extend({
+el.ComicScene = el.LevelScene.extend({
 	
-	//ctor:function () {
-    //    this._super();
-	//},
-    onEnter:function () {
-        this._super();
-
-        var layer = new el.InitLayer(res.sc_comic_json, true, false, null);		
-		this.addChild(layer);
+	// Constructor for ComicScene
+	ctor: function(currentLevel) {
+        this._super(currentLevel);
+	},
+	
+	parseLevelContentForScene: function() {
+		
+		// we need to parse generic level content first
+		this._super();
+		
+		// fill scene
+		this._levelContent.parseComicContent();
 	}
 });

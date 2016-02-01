@@ -15,7 +15,7 @@
 var el = el || {};
 
 //
-// Game scene manager - Game scenes manager
+// Game level manager
 // Creator : JP
 // Date: 25/01/2016
 //
@@ -26,14 +26,16 @@ el.GameLevelManager = (function () {
 
 	// Private properties
 	var _gameTree = [];
-	var _currentGameScene;
+	var _levelContent;
 	var _treeVersion;
+	var _firstLevelCode = "1.1";
+	var _currentLoadedGame = null;
 		
 	// Private creation instance function 
     function createInstance() {
 		
 		// This is the main object
-        var gamescenemanger = new Object();
+        var gamelevelmanger = new Object();
 		
 		// Load all game scenes
 		if ( !loadTreeGameScenes() ) {
@@ -44,18 +46,70 @@ el.GameLevelManager = (function () {
 		el.gELLog("Level content version: " + getGameTreeVersion());
 
 		// Load current scene
-		gamescenemanger.loadCurrentScene = function(bLoad) {
+		gamelevelmanger.loadCurrentScene = function(currentGame) {
 			
-			// TODO: after reading gameTree retrieve the current scene for current game
-			if ( !bLoad ) {
-				return new el.ComicScene();
+			// if there is no main tree level content, exit
+			if ( _gameTree.length <= 0 ) {
+				el.gELLog("No content available to load from");
+				return new el.LevelScene(null);
 			}
 			
-			return new el.ComicScene();
+			// if there is no currentPlay assume first level
+			currentGame = !currentGame ? _firstLevelCode : currentGame;
+			
+			// fill a coded array with the current play
+			var currentPlayID = currentGame.split(".");
+			
+			// found branch
+			var foundBranch = null;
+			
+			// After reading gameTree retrieve the current scene for current game
+			for( branchLevel of _gameTree) {
+				
+				// if valid branch
+				if ( branchLevel.getID != undefined ) {
+					
+					// is this the correct branch?
+					if ( branchLevel.getID() == currentPlayID[0] ) {
+						
+						// Get rest of ID except for main branch which is first element
+						var contentID = currentPlayID;
+						contentID.shift(); // remove first element
+												
+						// content found
+						foundBranch = branchLevel.findContentByCode(contentID);
+						
+						// stop looking
+						break;
+					}
+				}
+			}
+			
+			// if there is no found branch, log it and restart the search with empty level (first level)
+			if ( !foundBranch ) {
+				
+				// if current game is not first level restart search
+				if ( currentGame != _firstLevelCode ) {
+					el.gELLog("No saved level found in game content for: " + currentGame + ". Restarting search from first level content");
+					return gamelevelmanger.loadCurrentScene(null);
+				}
+				else {
+					el.gELLog("No content available for default first content: " + currentGame + ". Check \"game-level-manager.js file and _firstLevelCode property\"");
+					return new el.LevelScene(null);
+				}
+			}
+
+			this._currentLoadedGame = currentGame;
+			el.gELLog("Loaded level: " + this._currentLoadedGame);
+			return foundBranch.getNewScene();
+		};
+		
+		gamelevelmanger.getCurrentLoadedGame = function() {
+			return this._currentLoadedGame;
 		};
 		
 		// return new object
-        return gamescenemanger;
+        return gamelevelmanger;
     };
 	
 	// Get game tree version

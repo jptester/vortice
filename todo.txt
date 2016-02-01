@@ -1,1 +1,4 @@
 
+1. En game-levels-manager: // TODO: after reading gameTree retrieve the current scene for current game
+2. En persostence: // Implementar load / save
+3. Crear animaciones y leerlas para luego implementarlas en algún objeto

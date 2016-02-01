@@ -22,6 +22,7 @@ el.ComicContent = el.LevelContent.extend({
 	
 	// Private properties
 	_dialogs: [],
+	_currentDialog: 0,
 
 	// Public properties
 	dialog_property_name: "dialog",
@@ -32,12 +33,18 @@ el.ComicContent = el.LevelContent.extend({
 		// Run super constructor
 		this._super(bHidden, iCode, content);
 		
+		// Version will depend on children
+		this._version = 0;
+
+		// Current dialog
+		this._currentDialog = 0;
+		
 		// Parse dialogues
-		this.parseContent(content);
+		this.readAllContent(content);
 	},
 	
-	// Parse the whole content into this object properties
-	parseContent: function(content) {
+	// Reads and loads the whole content into this object properties
+	readAllContent: function(content) {
 		
 		// dialogue id
 		var id = 0;
@@ -67,6 +74,95 @@ el.ComicContent = el.LevelContent.extend({
 		
 		return true;
 	},
+	
+	// find specific content by ID, returns null if not found
+	findContentByCode: function(contentID) {
+		
+		// if there are no dialogues return null
+		if ( this._dialogs.length <= 0 ) {
+			return null;
+		}
+		
+		// if this content code is the same as content ID return this content
+		for ( dialog of this._dialogs ) {
+			
+			// if this is the same dialogue, return true and keep a reference 
+			if ( dialog.getID() == contentID ) {
+				
+				// keep track of selected dialogue content
+				this._currentDialog = contentID;
+				
+				// return current content / dialogue
+				return this;
+			}
+		}
+		
+		// No content found
+		return null;
+	},
+	
+	// fill / replace content with current dialog
+	parseComicContent: function() {
+		
+		// here I should replace all elements depending on dialogue
+		var currentLevel = el.GameLevelManager.getInstance().getCurrentLoadedGame();
+		
+		// first check if this is the same dialogue we're looking for
+		if ( this.getID() + "." + this._currentDialog != currentLevel ) {
+			
+			// Alert something might not be right
+			el.gELLog("Differences between current dialogue in comics and in GameLevelManager, check saved info or game tree");
+		}
+
+		// evaluate every dialogue until reach specific dialogue
+		for ( dialog of this._dialogs ) {
+		
+			// move to next dialogue
+			this.moveToNextDialog(dialog);
+
+			// if this is the same dialogue, stop evaluating contents
+			if ( this.getID() + "." + dialog.getID() == currentLevel ) {
+				// stop evaluating content
+				return;
+			}
+		}
+		
+		// if this point is reached a problem occurred
+		var errorMsg = "During filling comic content, there was an error and no 'dialogue' was found";
+		el.gELLog(errorMsg);
+		
+		// if debug session quit
+		if ( cc.game.config.debugMode == 1 ){
+			throw new Error(errorMsg);
+		}
+	},
+	
+	// Moves content to next content
+	// which means every element will be evaluated and if there are changes, get the new state
+	moveToNextDialog: function(nextDialog) {
+
+		// Parse dialogues
+		this._background = this.checkEvolution( this._background, nextDialog.background );
+		this._bg_cocostudiocontent = this.checkEvolution( this._bg_cocostudiocontent, nextDialog.bg_cocostudiocontent );
+		this._fg_cocostudiocontent = this.checkEvolution( this._fg_cocostudiocontent, nextDialog.fg_cocostudiocontent );
+		this._bg_music = this.checkEvolution( this._bg_music, nextDialog.bg_music );
+		this._bg_sound = this.checkEvolution( this._bg_sound, nextDialog.bg_sound );
+		this._chars = this.checkEvolution( this._chars, nextDialog.chars );
+		this._txt_face = this.checkEvolution( this._txt_face, nextDialog.txt_face );
+		this._txt_text = this.checkEvolution( this._txt_text, nextDialog.txt_text );
+	},
+	
+	// check current property for evolution - this will change the property to next state if needed
+	checkEvolution: function(oldObj, newObj) {
+		// first check if changes
+		return ( newObj != null && oldObj != newObj ) ? newObj : oldObj;
+	},
+	
+	// returns a corresponding scene type
+	getNewScene: function() {
+		// if this content code is the same as content ID return this content
+		return new el.ComicScene(this);
+	}	
 });
 
 //
@@ -78,14 +174,15 @@ el.ComicDialog = el.Class.extend({
 
 	//private properties
 	_id: null,
-	_background: null,
-	_bg_sound: null,
-	_bg_music: null,
-	_bg_fx: null,
-	_chars: [],
-	_txt_face: null,
-	_txt_text: null,
-	
+	background: null,
+	bg_cocostudiocontent: null,
+	fg_cocostudiocontent: null,
+	bg_music: null,
+	bg_sound: null,
+	chars: [],
+	txt_face: null,
+	txt_text: null,
+		
 	// Constructor for level
 	ctor: function (id, dialog) {
 		
@@ -93,20 +190,26 @@ el.ComicDialog = el.Class.extend({
 		this._id = id;
 		
 		// Parse dialogues
-		this._background = this.checkProperty(dialog.background);
-		this._bg_sound = this.checkProperty(dialog.bg_sound);
-		this._bg_music = this.checkProperty(dialog.bg_music);
-		this._bg_fx = this.checkProperty(dialog.bg_fx);
-		this._chars = this.checkProperty(dialog.chars);
-		this._txt_face = this.checkProperty(dialog.txt_face);
-		this._txt_text = this.checkProperty(dialog.txt_text);
+		this.background = this.checkProperty(dialog.background);
+		this.bg_cocostudiocontent = this.checkProperty(dialog.bg_cocostudiocontent);
+		this.fg_cocostudiocontent = this.checkProperty(dialog.fg_cocostudiocontent);
+		this.bg_music = this.checkProperty(dialog.bg_music);
+		this.bg_sound = this.checkProperty(dialog.bg_sound);
+		this.chars = this.checkProperty(dialog.chars);
+		this.txt_face = this.checkProperty(dialog.txt_face);
+		this.txt_text = this.checkProperty(dialog.txt_text);
+	},
+	
+	// get dialog ID
+	getID: function() {
+		return this._id;
 	},
 	
 	// check for empty properties which is possible for comic content
 	checkProperty: function(obj){
 		
 		// if no object return null
-		if ( obj == null ) {
+		if ( !obj ) {
 			return null;
 		}
 		

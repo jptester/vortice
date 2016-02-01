@@ -1,4 +1,4 @@
-<UserData Version="2.3.3.0">
+<UserData Version="3.10.0.0">
   <Properties>
     <Item Key="CocosRecentOperation">
       <Value ctype="CocosRecentOperation">
@@ -21,6 +21,9 @@
         <RunPlatform Value="None" />
         <FrameworkVersion Value="cocos2d-x-3.9" />
         <IsDebugKeystore Value="True" />
+        <KeystorePassword Value="" />
+        <KeystoreAliasName Value="" />
+        <KeystoreAliasPassword Value="" />
         <EnableSourceMap Value="False" />
         <EnableHTML5Advanced Value="False" />
       </Value>
@@ -28,9 +31,9 @@
     <Item Key="TabsParamsKey">
       <Value ctype="TabsInfo">
         <OpenedDocuments>
-          <FilePathData Path="sc_comic.csd" />
+          <FilePathData Path="sc_comic2.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="sc_comic.csd" />
+        <ActiveDocument Path="sc_comic2.csd" />
       </Value>
     </Item>
   </Properties>
