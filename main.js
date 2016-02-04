@@ -82,8 +82,9 @@ cc.game.onStart = function(){
 		cc.audioEngine.playMusic(res.music_init, true);
 
 		// if debug skip to x scene
-		if ( cc.game.config.debugMode == 1 ){
-			cc.director.runScene(new el.MainMenuScene());
+		if ( false && cc.game.config.debugMode == 1 ){
+			//cc.director.runScene(new cc.TransitionFade(1, el.GameLevelManager.getInstance().loadFirstLevelScene()));
+			//cc.director.runScene(new el.MainMenuScene());
 		}
 		else {
 			cc.director.runScene(new el.SplashScreen());

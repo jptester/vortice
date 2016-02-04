@@ -37,14 +37,19 @@ el.vortice = el.vortice || {};
 // Comic
 el.vortice.comic_01 = {
 	type: el.vortice.LEVEL_TYPES.COMIC,
-	background: res.img_bg02,
-	bg_cocostudiocontent: res.sc_comic_json,
+	//background: res.img_bg02,
+	//bg_cocostudiocontent: res.sc_comic_json,
 	//fg_cocostudiocontent: res.sc_comic2_json,
 	bg_sound: res.sound_jungle,
-	bg_music: res.music_comic02,
+	//bg_music: res.music_comic02,
 	dialogs: 
 	{
 		dialog1: {
+			//background: res.img_bg03, // possible values = res.<algo>, "remove" or null
+			bg_cocostudiocontent: res.sc_comic2_json, // possible values = res.<algo>, "remove" or null
+			//fg_cocostudiocontent: res.sc_comic_json, // possible values = res.<algo>, "remove" or null
+			//bg_sound: res.sound_jungle, // possible values = res.<algo>, "stop" or null
+			bg_music: res.music_comic02, // possible values = res.<algo>, "stop" or null
 			chars:  [
 				{
 					name: "martha",
@@ -75,6 +80,7 @@ el.vortice.comic_01 = {
 			txt_text : "txt_intro_01",
 		},
 		dialog2: {
+			bg_cocostudiocontent: res.sc_comic_json,
 			chars : [
 				{
 					name: "martha",

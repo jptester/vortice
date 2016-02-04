@@ -20,11 +20,8 @@ var el = el || {};
 //
 el.ComicContent = el.LevelContent.extend({
 	
-	// Private properties
-	_dialogs: [],
-	_currentDialog: 0,
-
-	// Public properties
+	// Properties
+	_dialogs: null,
 	dialog_property_name: "dialog",
 	
 	// Constructor for level
@@ -32,12 +29,6 @@ el.ComicContent = el.LevelContent.extend({
 		
 		// Run super constructor
 		this._super(bHidden, iCode, content);
-		
-		// Version will depend on children
-		this._version = 0;
-
-		// Current dialog
-		this._currentDialog = 0;
 		
 		// Parse dialogues
 		this.readAllContent(content);
@@ -50,92 +41,100 @@ el.ComicContent = el.LevelContent.extend({
 		var id = 0;
 		
 		// check if there are dialogues
-		if ( content.dialogs == undefined ) {
-			this._dialogs = [];
+		if ( !content.dialogs ) {
+			this._dialogs = null;
 			el.gELLog("No valid dialogues in comic");
 			return false;
 		}
 		
+		// Set dialogues
+		this._dialogs = [];
+
 		// read every dialogue
 		for (var property in content.dialogs) {
 			// if correct property
 			if ( property.substr(0, this.dialog_property_name.length) == this.dialog_property_name) {
 				
-				// Create an id
-				id++;
-
 				// add dialogue
-				this._dialogs.push(new el.ComicDialog(id, content.dialogs[property]));
+				this._dialogs.push(new el.ComicDialog(content.dialogs[property]));
 				
-				// update current version
-				this._version += id;
+				// set new dialog id
+				id++;
 			}
 		}
-		
+				
 		return true;
 	},
 	
-	// find specific content by ID, returns null if not found
-	findContentByCode: function(contentID) {
+	// set sub level key
+	setSubLevelKey: function (subLevelKey) {
+
+		// run super
+		this._super();
 		
-		// if there are no dialogues return null
-		if ( this._dialogs.length <= 0 ) {
-			return null;
-		}
+		// Go to the sub level
+		parseComicContentUntilKey ( subLevelKey );
+	},
+
 		
-		// if this content code is the same as content ID return this content
-		for ( dialog of this._dialogs ) {
+	// fill / replace content with current dialog
+	parseComicContentUntilKey: function(subLevelKey) {
+		
+		// if point is unreachable
+		if ( this._dialogs.length <= subLevelKey ) {
+			// if this point is reached a problem occurred
+			var errorMsg = "During parsing comic content, there was an error and no 'dialogue' was found: " + subLevelKey;
+			el.gELLog(errorMsg);
 			
-			// if this is the same dialogue, return true and keep a reference 
-			if ( dialog.getID() == contentID ) {
-				
-				// keep track of selected dialogue content
-				this._currentDialog = contentID;
-				
-				// return current content / dialogue
-				return this;
+			// if debug session quit
+			if ( cc.game.config.debugMode == 1 ){
+				throw new Error(errorMsg);
 			}
 		}
+	
+		// evaluate every dialogue until reach specific dialogue
+		for ( var i = 0; i <= subLevelKey; i++ ) {
 		
-		// No content found
-		return null;
+			// get dialogue
+			var dialog = this._dialogs[i];
+			
+			// check dialogue
+			if ( dialog ) {
+				
+				// move to next dialogue
+				this.moveToNextDialog(dialog);
+
+				// keep track of sub level key
+				this._subLevelKey = i;
+			}
+		}
 	},
 	
-	// fill / replace content with current dialog
-	parseComicContent: function() {
-		
-		// here I should replace all elements depending on dialogue
-		var currentLevel = el.GameLevelManager.getInstance().getCurrentLoadedGame();
-		
-		// first check if this is the same dialogue we're looking for
-		if ( this.getID() + "." + this._currentDialog != currentLevel ) {
-			
-			// Alert something might not be right
-			el.gELLog("Differences between current dialogue in comics and in GameLevelManager, check saved info or game tree");
-		}
+	// returns true if there are more level content
+	isThereNextContent: function () {
+		return this._dialogs[this._subLevelKey + 1] != undefined;
+	},
+	
 
-		// evaluate every dialogue until reach specific dialogue
-		for ( dialog of this._dialogs ) {
+	// Get next content
+	getNextContent: function () {
+		
+		// if there is next content move to next dialogue
+		if ( this.isThereNextContent() ) {
 		
 			// move to next dialogue
-			this.moveToNextDialog(dialog);
-
-			// if this is the same dialogue, stop evaluating contents
-			if ( this.getID() + "." + dialog.getID() == currentLevel ) {
-				// stop evaluating content
-				return;
-			}
+			this._subLevelKey++;
+			this.moveToNextDialog(this._dialogs[this._subLevelKey]);
+			
+			// return true
+			return true;
 		}
 		
-		// if this point is reached a problem occurred
-		var errorMsg = "During filling comic content, there was an error and no 'dialogue' was found";
-		el.gELLog(errorMsg);
-		
-		// if debug session quit
-		if ( cc.game.config.debugMode == 1 ){
-			throw new Error(errorMsg);
-		}
+		// if there are no more dialogues
+		this._subLevelKey = 0;
+		return false;
 	},
+
 	
 	// Moves content to next content
 	// which means every element will be evaluated and if there are changes, get the new state
@@ -172,8 +171,7 @@ el.ComicContent = el.LevelContent.extend({
 //
 el.ComicDialog = el.Class.extend({
 
-	//private properties
-	_id: null,
+	// properties
 	background: null,
 	bg_cocostudiocontent: null,
 	fg_cocostudiocontent: null,
@@ -184,10 +182,7 @@ el.ComicDialog = el.Class.extend({
 	txt_text: null,
 		
 	// Constructor for level
-	ctor: function (id, dialog) {
-		
-		// get ID
-		this._id = id;
+	ctor: function (dialog) {
 		
 		// Parse dialogues
 		this.background = this.checkProperty(dialog.background);
@@ -198,11 +193,6 @@ el.ComicDialog = el.Class.extend({
 		this.chars = this.checkProperty(dialog.chars);
 		this.txt_face = this.checkProperty(dialog.txt_face);
 		this.txt_text = this.checkProperty(dialog.txt_text);
-	},
-	
-	// get dialog ID
-	getID: function() {
-		return this._id;
 	},
 	
 	// check for empty properties which is possible for comic content

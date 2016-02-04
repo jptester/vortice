@@ -23,6 +23,7 @@ el.LevelScene = cc.Scene.extend({
 	// current level info
 	_levelContent: null,
 	_levelLayer: null,
+	_uiLayer: null,
 	_sc_bg_fx_ID: null,
 	
 	// Specific level content
@@ -49,11 +50,21 @@ el.LevelScene = cc.Scene.extend({
 		this._levelLayer = new cc.Layer();
 		this.addChild(this._levelLayer);
 		
+		// Create an UI layer
+		this._uiLayer = new cc.Layer();
+		this.addChild(this._uiLayer);
+		
+		// update all inner elements
+		this.updateAllElements();
+	},
+	
+	// update all inner elements
+	updateAllElements: function() {
 		// parse current content - logic fill
 		this.parseLevelContentForScene();
 
 		// fill with current content - phisic fill
-		this.fillLevelContentForScene();
+		this.fillLevelContentForScene();		
 	},
 	
 	// This function will CRUD all elements in scene 
@@ -64,7 +75,10 @@ el.LevelScene = cc.Scene.extend({
 	// This function will CRUD all elements in scene 
 	fillLevelContentForScene: function() {
 		
-		// fill content
+		// if there is no content just leave
+		if ( !this._levelContent ) {
+			return;
+		}
 
 		// Get background and update it
 		var bg = this._levelContent.getBackground();

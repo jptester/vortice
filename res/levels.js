@@ -27,7 +27,11 @@ el.vortice.levels = [
 		hidden: false,
 	},
 	{
-		content: el.vortice.level_01,
+		content: el.vortice.comic_01,
 		hidden: false,
 	},
+	/*{
+		content: el.vortice.level_01,
+		hidden: false,
+	},*/
 ];

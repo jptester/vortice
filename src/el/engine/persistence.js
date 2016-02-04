@@ -17,21 +17,23 @@ var el = el || {};
 //
 el.Persistence = el.Class.extend({
 	
-	// private properties
-	_fullScreen: false,
-	_bg_music_volume: 0.5,
-	_fx_volume: 0.5,
-	_email: "",
-	_currentLevel: "",
-	_gameInfo: "",
+	// properties
+	fullScreen: false,
+	bg_music_volume: 0,
+	fx_volume: 0,
+	email: null,
+	currentLevel: 0,
+	currentSubLevel: 0,
+	gameInfo: null,
 
 	// Private key names for items to be saved
-	_sFullScreenKey: "fullScreen",
-	_sBgMusicVolumeKey: "bg_music_volume",
-	_sFxVolumeKey: "fx_volume",
-	_sEmailKey: "email",
-	_sCurrentLevelKey: "currentLevel",
-	_sGameInfoKey: "gameInfo",
+	sFullScreenKey: "fullScreen",
+	sBgMusicVolumeKey: "bg_music_volume",
+	sFxVolumeKey: "fx_volume",
+	sEmailKey: "email",
+	sCurrentLevelKey: "currentLevel",
+	sCurrentSubLevelKey: "currentSubLevelKey",
+	sGameInfoKey: "gameInfo",
 
 	
 	// Constructor / initializer of all options
@@ -43,12 +45,13 @@ el.Persistence = el.Class.extend({
 		}
 		
 		// default values
-		this._fullScreen = false;
-		this._bg_music_volume = 0.5;
-		this._fx_volume = 0.5;
-		this._email = "";
-		this._currentLevel = "1.1";
-		this._gameInfo = "";
+		this.fullScreen = false;
+		this.bg_music_volume = 0.5;
+		this.fx_volume = 0.5;
+		this.email = "";
+		this.currentLevel = 1;
+		this.currentSubLevel = 0;
+		this.gameInfo = "";
 
 	},
 	
@@ -60,11 +63,6 @@ el.Persistence = el.Class.extend({
 	// load game
 	loadGame: function() {
 		throw new Error("Can't execute abstract method!: el.Persistence.saveGame");
-	},
-	
-	// get current saved level
-	getSavedLevel: function() {
-		return this._currentLevel;
 	},
 	
 	// replace any incurrance of "=" char
@@ -84,9 +82,6 @@ el.Persistence = el.Class.extend({
 		return sString;
 	},
 	
-	getFullScreen: function(){
-		return this._fullScreen;
-	}
 });
 
 
@@ -95,7 +90,7 @@ el.Persistence = el.Class.extend({
 //
 el.LocalPersistence = el.Persistence.extend({
 	
-	// private properties
+	// storage property
 	_localStorage: null,
 	
 	// Constructor / initializer of all options
@@ -117,12 +112,13 @@ el.LocalPersistence = el.Persistence.extend({
 			return false;
 		}
 
-		this._localStorage.setItem(this._sFullScreenKey, String(this._fullScreen));
-		this._localStorage.setItem(this._sBgMusicVolumeKey, String(this._bg_music_volume));
-		this._localStorage.setItem(this._sFxVolumeKey, String(this._fx_volume));
-		this._localStorage.setItem(this._sEmailKey, el.gBase64.encode(this.clearString(this._email)));
-		this._localStorage.setItem(this._sCurrentLevelKey, el.gBase64.encode(this._currentLevel));
-		this._localStorage.setItem(this._sGameInfoKey, el.gBase64.encode(this._gameInfo));
+		this._localStorage.setItem(this.sFullScreenKey, String(this.fullScreen));
+		this._localStorage.setItem(this.sBgMusicVolumeKey, String(this.bg_music_volume));
+		this._localStorage.setItem(this.sFxVolumeKey, String(this.fx_volume));
+		this._localStorage.setItem(this.sCurrentLevelKey, el.gBase64.encode(String(this.currentLevel)));
+		this._localStorage.setItem(this.sCurrentSubLevelKey, el.gBase64.encode(String(this.currentSubLevel)));
+		this._localStorage.setItem(this.sEmailKey, el.gBase64.encode(this.clearString(this.email)));
+		this._localStorage.setItem(this.sGameInfoKey, el.gBase64.encode(this.gameInfo));
 
 		return true;
 	},
@@ -136,13 +132,14 @@ el.LocalPersistence = el.Persistence.extend({
 		}
 
 		// parse cookie
-		this._fullScreen = Boolean(this._localStorage.getItem(this._sFullScreenKey));
-		this._bg_music_volume = Number(this._localStorage.getItem(this._sBgMusicVolumeKey));
-		this._fx_volume = Number(this._localStorage.getItem(this._sFxVolumeKey));
-		this._email = this.fixCodeDecodeBug(el.gBase64.decode(this._localStorage.getItem(this._sEmailKey)));
-		this._currentLevel = this.fixCodeDecodeBug(el.gBase64.decode(this._localStorage.getItem(this._sCurrentLevelKey)));
-		this._gameInfo = this.fixCodeDecodeBug(el.gBase64.decode(this._localStorage.getItem(this._sGameInfoKey)));
-
+		this.fullScreen = Boolean(this._localStorage.getItem(this.sFullScreenKey));
+		this.bg_music_volume = Number(this._localStorage.getItem(this.sBgMusicVolumeKey));
+		this.fx_volume = Number(this._localStorage.getItem(this.sFxVolumeKey));
+		this.email = this.fixCodeDecodeBug(el.gBase64.decode(this._localStorage.getItem(this.sEmailKey)));
+		this.currentLevel = Number(this.fixCodeDecodeBug(el.gBase64.decode(this._localStorage.getItem(this.sCurrentLevelKey))));
+		this.currentSubLevel = Number(this.fixCodeDecodeBug(el.gBase64.decode(this._localStorage.getItem(this.sCurrentSubLevelKey))));
+		this.gameInfo = this.fixCodeDecodeBug(el.gBase64.decode(this._localStorage.getItem(this.sGameInfoKey)));
+		
 		return true;
 	},
 	

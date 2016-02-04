@@ -18,16 +18,16 @@ var el = el || {};
 // Level content
 //
 el.LevelContent = el.Class.extend({
+	
 	// private properties
-	_id: null,
-	_version: 1,
 	_bHidden: null,
 	_background: null,
 	_bg_cocostudiocontent: null,
 	_fg_cocostudiocontent: null,
 	_bg_sound: null,
 	_bg_music: null,
-	_currentGame: null,
+	_containerScene: null,
+	_subLevelKey: 0,
 	
 	// Constructor for level
 	ctor:function (bHidden, id, content) {
@@ -67,26 +67,14 @@ el.LevelContent = el.Class.extend({
 		return this._bHidden;
 	},
 	
-	// Return content ID
-	getID: function() {
-		return this._id;
-	},
-	
-	// Get version
-	getVersion: function() {
-		return this._version;
-	},
-	
-	// level content does not have content
-	findContentByCode: function(contentID) {
-		// if this content code is the same as content ID return this content
-		return null;
-	},
-	
 	// returns a corresponding scene type
-	getNewScene: function(currentGame) {		
-		// if this content code is the same as content ID return this content
-		return new el.LevelScene(this);
+	getNewScene: function() {		
+	
+		// Create a new scene
+		this._containerScene = new el.LevelScene(this);
+	
+		// for level content (engine default level) return a stardarx 
+		return this._containerScene;
 	},
 		
 	// Get info from content
@@ -112,5 +100,21 @@ el.LevelContent = el.Class.extend({
 	// Get info from content
 	getBgFxSound: function () {
 		return this._bg_sound;
+	},
+	
+	// set sub level key
+	setSubLevelKey: function (subLevelKey) {
+		this._subLevelKey = subLevelKey;
+	},
+
+	// returns true if there are more level content
+	isThereNextContent: function () {
+		return false;
+	},
+	
+	// sets next available content within this content
+	// for default content, there is only one content and no children
+	getNextContent: function () {
+		return false;
 	},
 });

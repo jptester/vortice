@@ -30,3 +30,9 @@ el.vortice.LEVEL_TYPES = el.vortice.LEVEL_TYPES || {
 	COMIC: 0,
 	STRATEGY: 1
 };
+
+// return a new emtpy scene
+el.getDefaultAfterLevelsScene = function () {
+	return new el.MainMenuScene();
+};
+

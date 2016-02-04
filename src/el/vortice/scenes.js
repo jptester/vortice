@@ -174,7 +174,7 @@ el.MainMenuScene = cc.Scene.extend({
 	// Init new game if selected
 	newGame:function ( sender, type ) {
 		if ( el.gActivationEvent(sender, type) ) {
-			cc.director.runScene(new cc.TransitionFade(1, el.GameLevelManager.getInstance().loadCurrentScene()));
+			cc.director.runScene(new cc.TransitionFade(1, el.GameLevelManager.getInstance().loadFirstLevelScene()));
 		}
 	},
 	
@@ -182,7 +182,19 @@ el.MainMenuScene = cc.Scene.extend({
 	continueGame:function ( sender, type ) {
 		if ( el.gActivationEvent(sender, type) ) {
 			var currentGame = el.Game.getInstance().loadCurrentSavedGameLevel();
-			cc.director.runScene(new cc.TransitionFade(1, el.GameLevelManager.getInstance().loadCurrentScene(currentGame)));
+			var savedScene = el.GameLevelManager.getInstance().loadSceneByKey(currentGame);
+			if ( savedScene ) {
+				
+				// if it is a comic
+				if ( savedScene instanceof el.ComicScene ) {
+					el.GameLevelManager.getInstance().setSubLevelKey ( el.Game.getInstance().loadCurrentSavedGameSubLevel() );
+				}				
+				cc.director.runScene(new cc.TransitionFade(1, savedScene));
+			}
+			else {
+				el.gELLog("No valid saved file");
+				cc.director.runScene(new cc.TransitionFade(1, el.GameLevelManager.getInstance().loadFirstLevelScene()));
+			}
 		}
 	},
 	

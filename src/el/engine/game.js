@@ -41,7 +41,12 @@ el.Game = (function () {
 
 		// Load current level
 		game.loadCurrentSavedGameLevel = function() {
-			return game.persistentObject.getSavedLevel();
+			return game.persistentObject.currentLevel;
+		}
+		
+		// Load current sub level
+		game.loadCurrentSavedGameSubLevel = function() {
+			return game.persistentObject.currentSubLevel;
 		}
 		
 		// Saves current game
@@ -55,6 +60,8 @@ el.Game = (function () {
 	
 	// Public methods
     return {
+		
+		// get instance
         getInstance: function () {
             if (_game === undefined) {
                 _game = createInstance();

@@ -24,12 +24,11 @@ el.GameLevelManager = (function () {
 	// Private object / singleton instance
 	var gameLevelManager;
 
+	// DO NOT USE "this." pointer in order to access these properties, they are private
 	// Private properties
-	var _gameTree = [];
-	var _levelContent;
-	var _treeVersion;
-	var _firstLevelCode = "1.1";
-	var _currentLoadedGame = null;
+	var _gameTree;
+	var _currentLevelKey;
+	var _currentLevel;
 		
 	// Private creation instance function 
     function createInstance() {
@@ -38,97 +37,145 @@ el.GameLevelManager = (function () {
         var gamelevelmanger = new Object();
 		
 		// Load all game scenes
-		if ( !loadTreeGameScenes() ) {
+		if ( !loadGameTreeLevels() ) {
 			el.gELLog("No content loaded");
 		}
+		
+		// Load first level
+		gamelevelmanger.loadFirstLevelScene = function() {
 
-		// Tree version
-		el.gELLog("Level content version: " + getGameTreeVersion());
-
-		// Load current scene
-		gamelevelmanger.loadCurrentScene = function(currentGame) {
+			// key for first level
+			var firstKey = 1;
+			
+			// there must be at least one level
+			if ( _gameTree.size > 0 ) {
+				
+				// get pointer to first element at level map
+				var mapIter = _gameTree.keys();
+				
+				// if valid pointer load first element
+				firstKey = mapIter.next().value;
+			}
+						
+			// Load that level by key
+			return gamelevelmanger.loadSceneByKey(firstKey);
+		}
+		
+		// Loads a level by key and returns a new scene depending on the content itself
+		gamelevelmanger.loadSceneByKey = function(levelKey) {
+			
+			// currentGame
 			
 			// if there is no main tree level content, exit
-			if ( _gameTree.length <= 0 ) {
+			if ( _gameTree.size <= 0 ) {
 				el.gELLog("No content available to load from");
 				return new el.LevelScene(null);
 			}
 			
-			// if there is no currentPlay assume first level
-			currentGame = !currentGame ? _firstLevelCode : currentGame;
-			
-			// fill a coded array with the current play
-			var currentPlayID = currentGame.split(".");
-			
-			// found branch
-			var foundBranch = null;
-			
-			// After reading gameTree retrieve the current scene for current game
-			for( branchLevel of _gameTree) {
-				
-				// if valid branch
-				if ( branchLevel.getID != undefined ) {
-					
-					// is this the correct branch?
-					if ( branchLevel.getID() == currentPlayID[0] ) {
-						
-						// Get rest of ID except for main branch which is first element
-						var contentID = currentPlayID;
-						contentID.shift(); // remove first element
-												
-						// content found
-						foundBranch = branchLevel.findContentByCode(contentID);
-						
-						// stop looking
-						break;
-					}
-				}
+			// levelKey must exist and be valid
+			if ( !levelKey ) {
+				el.gELLog("No valid level key for game");
+				return new el.LevelScene(null);
 			}
 			
-			// if there is no found branch, log it and restart the search with empty level (first level)
-			if ( !foundBranch ) {
-				
-				// if current game is not first level restart search
-				if ( currentGame != _firstLevelCode ) {
-					el.gELLog("No saved level found in game content for: " + currentGame + ". Restarting search from first level content");
-					return gamelevelmanger.loadCurrentScene(null);
-				}
-				else {
-					el.gELLog("No content available for default first content: " + currentGame + ". Check \"game-level-manager.js file and _firstLevelCode property\"");
-					return new el.LevelScene(null);
-				}
+			// keep last key
+			_currentLevelKey = levelKey;
+			
+			// Get level by key
+			_currentLevel = _gameTree.get(_currentLevelKey);
+			
+			// Look into game level map
+			if ( !_currentLevel ) {
+				_currentLevelKey = _currentLevel = undefined;
+				el.gELLog("No valid level content for key: " + levelKey);
+				return new el.LevelScene(null);
 			}
-
-			this._currentLoadedGame = currentGame;
-			el.gELLog("Loaded level: " + this._currentLoadedGame);
-			return foundBranch.getNewScene();
+			
+			// log current level content
+			el.gELLog("Current scene: " + _currentLevelKey + "." + _currentLevel._subLevelKey);
+			
+			return _currentLevel.getNewScene();
 		};
 		
-		gamelevelmanger.getCurrentLoadedGame = function() {
-			return this._currentLoadedGame;
+		// Set sub level key
+		gamelevelmanger.setSubLevelKey = function(subLevelKey) {
+			_currentSubLevel = subLevelKey;
+		};
+		
+		// Get sub level key
+		gamelevelmanger.getSubLevelKey = function() {
+			return _currentSubLevel;
+		};
+
+		// Returns curren loaded scene
+		gamelevelmanger.getNextContentScene = function() {
+			
+			// if there is no current content, return first level
+			if ( !_currentLevel ) {
+				el.gELLog("No valid start point for \"next\" content");
+				return gamelevelmanger.loadFirstLevelScene;
+			}
+			
+			// If there is still content, load it
+			if ( _currentLevel.isThereNextContent() ) {
+				
+				// load next content within this scene
+				_currentLevel.getNextContent();
+				
+				// log current level content
+				el.gELLog("Current level: " + _currentLevelKey + "." + _currentLevel._subLevelKey);
+
+				// do not change scene
+				return null;
+			}
+			
+			return gamelevelmanger.getNextLevelScene();
+		};
+		
+		// Returns curren loaded scene
+		gamelevelmanger.getNextLevelScene = function() {
+			// look into game tree and find "next" level
+			
+			// get pointer to first element within map
+			var mapIter = _gameTree.keys();
+			
+			// keys
+			var key;
+
+			// find current key
+			do {
+				// get next key
+				key = mapIter.next();
+			} while ( key.value !== undefined && key.value != _currentLevelKey );
+			
+			// if key was found
+			if ( key ) {
+				// move one key forward
+				key = mapIter.next();
+				
+				// if there is a valid next level
+				if ( key.value ) {
+					// and if there is a valid next level, load that level
+					return gamelevelmanger.loadSceneByKey(key.value);
+				}
+			}
+			
+			// If final level has been reached, go to default "after all levels" scene
+			return el.getDefaultAfterLevelsScene();
 		};
 		
 		// return new object
         return gamelevelmanger;
     };
 	
-	// Get game tree version
-	function getGameTreeVersion() {
-		
-		// return tree version
-		return _treeVersion;		
-	};
- 	
-	// Private creation instance function 
-    function loadTreeGameScenes() {
+	// Reads every level of the game and puts it into a key - value map
+    function loadGameTreeLevels() {
 		
 		// Codes for each level
 		var id = 0;
 		
-		// Content version 
-		// Calculated as x.y, where x will be calculated as sum of all ids for levels and y will be the sum of all contents
-		var levelVersion = 0;
-		var contentLevelVersion = 0;
+		// Level map for all levels
+		_gameTree = new Map();
 		
 		// Read tree game
 		for ( var i = 0; i < el.vortice.levels.length; i++) {
@@ -139,21 +186,21 @@ el.GameLevelManager = (function () {
 			// Check to see if there is a problem or empty content
 			if ( content === undefined || bHidden === undefined ) {
 				el.gELLog("No valid level tree branch");
-				_gameTree = [];
+				_gameTree.clear();
 				return false;
 			}
 			
 			// Level content must be valid
 			if ( content.type === undefined ) {
 				el.gELLog("No valid level content");
-				_gameTree = [];
+				_gameTree.clear();
 				return false;
 			}
 			
 			// Create a new code
 			id++;
 			
-			// Create level content
+			// Get level content and put it into game tree map
 			var levelContent;
 			switch(content.type) {
 				case el.vortice.LEVEL_TYPES.COMIC:
@@ -165,18 +212,11 @@ el.GameLevelManager = (function () {
 				default:
 					levelContent = new el.LevelContent(bHidden, id, content);
 			};
-			
-			// Update level version
-			levelVersion += id;
-			contentLevelVersion += levelContent.getVersion();
-			
+						
 			// Level content
-			_gameTree.push(levelContent);
+			_gameTree.set(id, levelContent);
 		};
 		
-		// Update level version
-		_treeVersion = levelVersion.toString() + "." + contentLevelVersion.toString();
-
 		return true;
     };
 

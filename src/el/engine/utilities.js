@@ -29,14 +29,14 @@ el.gFindFirstChildInInnerTreeByName = function ( node, sName ) {
 	
 	// if there is a name and it is not empty
 	if ( sName === undefined || sName === "" ) {
-		el.gELmsg("No name to look for in gFindFirstChildInInnerTreeByName function");
+		el.gELLog("No name to look for in gFindFirstChildInInnerTreeByName function");
 	}
-	
+
 	// lets see if this node has children
 	if ( node != undefined && node instanceof cc.Node ) {
 		var locChildren = node.getChildren();
 		for(var i = 0, len = locChildren.length; i < len; i++){
-			if(locChildren[i].getName() === sName) {
+			if(locChildren[i].getName() == sName) {
 				return locChildren[i];
 			}
 			else if ( locChildren[i].getChildrenCount() > 0 ) {

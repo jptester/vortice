@@ -22,7 +22,7 @@ el.vortice = el.vortice || {};
 
 el.vortice.level_01 = {
 	type: el.vortice.LEVEL_TYPES.STRATEGY,
-	background: "",
-	bg_sound: "",
+	background: res.img_bg03,
+	bg_sound: res.sound_jungle,
 	path: 1
 };
