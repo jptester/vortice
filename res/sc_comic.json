@@ -59,442 +59,44 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "visualcontent/comic_characters/char01.png",
+              "Path": "visualcontent/particles/sun.plist",
               "Plist": ""
             },
             "BlendFunc": {
               "Src": 770,
-              "Dst": 771
+              "Dst": 1
             },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
+            "AnchorPoint": {},
             "Position": {
-              "X": 285.024,
-              "Y": 427.968
+              "X": 188.0,
+              "Y": 480.0
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
-            "IconVisible": false,
-            "PositionPercentXEnabled": true,
-            "PositionPercentYEnabled": true,
+            "IconVisible": true,
             "PrePosition": {
-              "X": 0.2969,
-              "Y": 0.6687
+              "X": 0.1958,
+              "Y": 0.75
             },
             "PreSize": {
-              "X": 0.3844,
-              "Y": 0.6328
+              "X": 0.0,
+              "Y": 0.0
             },
-            "LeftMargin": 100.524,
-            "RightMargin": 490.476,
-            "TopMargin": 9.532,
-            "BottomMargin": 225.468,
-            "Tag": 19,
-            "ActionTag": 1839689300,
+            "LeftMargin": 188.0,
+            "RightMargin": 772.0,
+            "TopMargin": 160.0,
+            "BottomMargin": 480.0,
+            "Tag": 4,
+            "ActionTag": -1198899303,
             "Size": {
-              "X": 369.0,
-              "Y": 405.0
+              "X": 0.0,
+              "Y": 0.0
             },
-            "Name": "sp_left_char",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "visualcontent/comic_characters/char02.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 770,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 684.96,
-              "Y": 427.968
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PositionPercentXEnabled": true,
-            "PositionPercentYEnabled": true,
-            "PrePosition": {
-              "X": 0.7135,
-              "Y": 0.6687
-            },
-            "PreSize": {
-              "X": 0.3844,
-              "Y": 0.6328
-            },
-            "LeftMargin": 500.46,
-            "RightMargin": 90.54,
-            "TopMargin": 9.532,
-            "BottomMargin": 225.468,
-            "Tag": 20,
-            "ActionTag": -1946780260,
-            "Size": {
-              "X": 369.0,
-              "Y": 405.0
-            },
-            "Name": "sp_right_char",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "visualcontent/ui/dialogbox01.png",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 770,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 480.0,
-              "Y": 130.0
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PositionPercentXEnabled": true,
-            "PrePosition": {
-              "X": 0.5,
-              "Y": 0.2031
-            },
-            "PreSize": {
-              "X": 0.9,
-              "Y": 0.3531
-            },
-            "LeftMargin": 48.0,
-            "RightMargin": 48.0,
-            "TopMargin": 397.0,
-            "BottomMargin": 17.0,
-            "Tag": 18,
-            "ActionTag": 30320945,
-            "Size": {
-              "X": 864.0,
-              "Y": 226.0
-            },
-            "Alpha": 205,
-            "Name": "sp_dialog",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FontSize": 14,
-            "ButtonText": "",
-            "TextColor": {
-              "R": 65,
-              "G": 65,
-              "B": 70
-            },
-            "DisabledFileData": {
-              "Type": "Normal",
-              "Path": "visualcontent/ui/button4_disabled.png",
-              "Plist": ""
-            },
-            "PressedFileData": {
-              "Type": "Normal",
-              "Path": "visualcontent/ui/button4_pressed.png",
-              "Plist": ""
-            },
-            "NormalFileData": {
-              "Type": "Normal",
-              "Path": "visualcontent/ui/button4.png",
-              "Plist": ""
-            },
-            "Scale9Enable": true,
-            "Scale9OriginX": 15,
-            "Scale9OriginY": 11,
-            "Scale9Width": 52,
-            "Scale9Height": 48,
-            "OutlineColor": {
-              "G": 0,
-              "B": 0
-            },
-            "ShadowColor": {
-              "R": 110,
-              "G": 110,
-              "B": 110
-            },
-            "ShadowOffsetX": 2.0,
-            "ShadowOffsetY": -2.0,
-            "TouchEnable": true,
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 895.488,
-              "Y": 230.016
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PositionPercentXEnabled": true,
-            "PositionPercentYEnabled": true,
-            "PrePosition": {
-              "X": 0.9328,
-              "Y": 0.3594
-            },
-            "PercentWidthEnable": true,
-            "PercentHeightEnable": true,
-            "PercentWidthEnabled": true,
-            "PercentHeightEnabled": true,
-            "PreSize": {
-              "X": 0.0854,
-              "Y": 0.1094
-            },
-            "LeftMargin": 854.496,
-            "RightMargin": 23.52,
-            "TopMargin": 374.976,
-            "BottomMargin": 195.008,
-            "Tag": 22,
-            "ActionTag": -651619571,
-            "Size": {
-              "X": 81.984,
-              "Y": 70.016
-            },
-            "Name": "btn_skip",
-            "ctype": "ButtonObjectData"
-          },
-          {
-            "FontSize": 14,
-            "ButtonText": "",
-            "TextColor": {
-              "R": 65,
-              "G": 65,
-              "B": 70
-            },
-            "DisabledFileData": {
-              "Type": "Normal",
-              "Path": "visualcontent/ui/button5_disabled.png",
-              "Plist": ""
-            },
-            "PressedFileData": {
-              "Type": "Normal",
-              "Path": "visualcontent/ui/button5_pressed.png",
-              "Plist": ""
-            },
-            "NormalFileData": {
-              "Type": "Normal",
-              "Path": "visualcontent/ui/button5.png",
-              "Plist": ""
-            },
-            "Scale9Enable": true,
-            "Scale9OriginX": 15,
-            "Scale9OriginY": 11,
-            "Scale9Width": 52,
-            "Scale9Height": 48,
-            "OutlineColor": {
-              "G": 0,
-              "B": 0
-            },
-            "ShadowColor": {
-              "R": 110,
-              "G": 110,
-              "B": 110
-            },
-            "ShadowOffsetX": 2.0,
-            "ShadowOffsetY": -2.0,
-            "TouchEnable": true,
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 895.488,
-              "Y": 41.024
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PositionPercentXEnabled": true,
-            "PositionPercentYEnabled": true,
-            "PrePosition": {
-              "X": 0.9328,
-              "Y": 0.0641
-            },
-            "PercentWidthEnable": true,
-            "PercentHeightEnable": true,
-            "PercentWidthEnabled": true,
-            "PercentHeightEnabled": true,
-            "PreSize": {
-              "X": 0.0854,
-              "Y": 0.1094
-            },
-            "LeftMargin": 854.496,
-            "RightMargin": 23.52,
-            "TopMargin": 563.968,
-            "BottomMargin": 6.016,
-            "Tag": 23,
-            "ActionTag": -659868142,
-            "Size": {
-              "X": 81.984,
-              "Y": 70.016
-            },
-            "Name": "btn_next",
-            "ctype": "ButtonObjectData"
-          },
-          {
-            "FontSize": 14,
-            "ButtonText": "",
-            "TextColor": {
-              "R": 65,
-              "G": 65,
-              "B": 70
-            },
-            "DisabledFileData": {
-              "Type": "Normal",
-              "Path": "visualcontent/ui/button6_disabled.png",
-              "Plist": ""
-            },
-            "PressedFileData": {
-              "Type": "Normal",
-              "Path": "visualcontent/ui/button6_pressed.png",
-              "Plist": ""
-            },
-            "NormalFileData": {
-              "Type": "Normal",
-              "Path": "visualcontent/ui/button6.png",
-              "Plist": ""
-            },
-            "Scale9Enable": true,
-            "Scale9OriginX": 15,
-            "Scale9OriginY": 11,
-            "Scale9Width": 52,
-            "Scale9Height": 48,
-            "OutlineColor": {
-              "G": 0,
-              "B": 0
-            },
-            "ShadowColor": {
-              "R": 110,
-              "G": 110,
-              "B": 110
-            },
-            "ShadowOffsetX": 2.0,
-            "ShadowOffsetY": -2.0,
-            "TouchEnable": true,
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 895.488,
-              "Y": 590.016
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PositionPercentXEnabled": true,
-            "PositionPercentYEnabled": true,
-            "PrePosition": {
-              "X": 0.9328,
-              "Y": 0.9219
-            },
-            "PercentWidthEnable": true,
-            "PercentHeightEnable": true,
-            "PercentWidthEnabled": true,
-            "PercentHeightEnabled": true,
-            "PreSize": {
-              "X": 0.0854,
-              "Y": 0.1094
-            },
-            "LeftMargin": 854.496,
-            "RightMargin": 23.52,
-            "TopMargin": 14.976,
-            "BottomMargin": 555.008,
-            "Tag": 24,
-            "ActionTag": 589363285,
-            "Size": {
-              "X": 81.984,
-              "Y": 70.016
-            },
-            "Name": "btn_options",
-            "ctype": "ButtonObjectData"
-          },
-          {
-            "IsCustomSize": true,
-            "FontSize": 20,
-            "LabelText": "",
-            "OutlineColor": {
-              "G": 0,
-              "B": 0
-            },
-            "ShadowColor": {
-              "R": 110,
-              "G": 110,
-              "B": 110
-            },
-            "ShadowOffsetX": 2.0,
-            "ShadowOffsetY": -2.0,
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 480.0,
-              "Y": 128.0
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PositionPercentXEnabled": true,
-            "PositionPercentYEnabled": true,
-            "PrePosition": {
-              "X": 0.5,
-              "Y": 0.2
-            },
-            "PercentWidthEnable": true,
-            "PercentHeightEnable": true,
-            "PercentWidthEnabled": true,
-            "PercentHeightEnabled": true,
-            "PreSize": {
-              "X": 0.8021,
-              "Y": 0.25
-            },
-            "LeftMargin": 94.992,
-            "RightMargin": 94.992,
-            "TopMargin": 432.0,
-            "BottomMargin": 48.0,
-            "Tag": 27,
-            "ActionTag": 583590970,
-            "Size": {
-              "X": 770.016,
-              "Y": 160.0
-            },
-            "Name": "txt_dialog",
-            "ctype": "TextObjectData"
+            "Name": "Particle_1",
+            "ctype": "ParticleObjectData"
           }
         ],
         "Size": {
@@ -506,18 +108,7 @@
       },
       "UsedResources": [
         "visualcontent/backgrounds/bg1.jpg",
-        "visualcontent/comic_characters/char01.png",
-        "visualcontent/comic_characters/char02.png",
-        "visualcontent/ui/button4.png",
-        "visualcontent/ui/button4_disabled.png",
-        "visualcontent/ui/button4_pressed.png",
-        "visualcontent/ui/button5.png",
-        "visualcontent/ui/button5_disabled.png",
-        "visualcontent/ui/button5_pressed.png",
-        "visualcontent/ui/button6.png",
-        "visualcontent/ui/button6_disabled.png",
-        "visualcontent/ui/button6_pressed.png",
-        "visualcontent/ui/dialogbox01.png"
+        "visualcontent/particles/sun.plist"
       ],
       "ctype": "GameFileData"
     }

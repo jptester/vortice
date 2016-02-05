@@ -7,13 +7,19 @@ var res = {
     sc_generic_json : "res/sc_generic.json",
     sc_comic_json : "res/sc_comic.json",
     sc_comic2_json : "res/sc_comic2.json",
+    sc_comic_ui_json : "res/sc_comic_ui.json",
 	
+	//
 	// Images
+	//
 	img_btnButton01_nrm : "res/visualcontent/ui/button3.png",
 	img_btnButton01_psh : "res/visualcontent/ui/button3_pressed.png",
 	img_btnButton01_dsb : "res/visualcontent/ui/button3_disabled.png",
 	img_bg02 : "res/visualcontent/backgrounds/bg2.jpg",
 	img_bg03 : "res/visualcontent/backgrounds/bg3.jpg",
+	// Faces
+	martha_happy_face : "res/visualcontent/comic_characters/martha_happy_face.png",
+	martha_angry_face : "res/visualcontent/comic_characters/martha_angry_face.png",
 
 	// Sounds: fx and music
 	music_comic01 : "res/sounds/music_comic01.mp3",

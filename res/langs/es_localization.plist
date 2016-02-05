@@ -9,5 +9,7 @@
 	<key>btn_options_game</key><string>Opciones</string>
 	<key>btn_quit_game</key><string>Salir</string>
 	<key>btn_start_game</key><string>Inicio</string>
+	<key>txt_intro_01</key><string>Es una noche fría de verano… El veloz murciélago vuela por la mañana y come muchas frutas e insectos. Los leones gobiernan la jungla africana, es una noche de locura. Falta agua para pensar</string>
+	<key>txt_intro_02</key><string>Este es el segundo diálogo de este juego, hay mucho por hacer y poco tiempo, veamos cómo optimizamos</string>
 </dict>
 </plist>

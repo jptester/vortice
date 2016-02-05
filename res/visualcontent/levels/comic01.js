@@ -76,7 +76,7 @@ el.vortice.comic_01 = {
 					]
 				},
 			],
-			txt_face : "martha_face_angry.png",
+			txt_face : res.martha_angry_face,
 			txt_text : "txt_intro_01",
 		},
 		dialog2: {
@@ -89,7 +89,7 @@ el.vortice.comic_01 = {
 					y: 0,
 				},
 			],
-			txt_face: "martha_face_happy.png",
+			txt_face: res.martha_happy_face,
 			txt_text: "txt_intro_02",
 		}
 	}

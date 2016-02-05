@@ -1,0 +1,426 @@
+{
+  "ID": "a4c17177-3502-4db3-880b-7c4e94a3559e",
+  "Version": "2.3.4",
+  "Name": "sc_comic_ui",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 10,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "visualcontent/ui/dialogbox01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.0,
+              "Y": 130.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.2031
+            },
+            "PreSize": {
+              "X": 0.9,
+              "Y": 0.3531
+            },
+            "LeftMargin": 48.0,
+            "RightMargin": 48.0,
+            "TopMargin": 397.0,
+            "BottomMargin": 17.0,
+            "Tag": 18,
+            "ActionTag": 30320945,
+            "Size": {
+              "X": 864.0,
+              "Y": 226.0
+            },
+            "Alpha": 205,
+            "Name": "sp_dialog",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "visualcontent/ui/button4_disabled.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "visualcontent/ui/button4_pressed.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "visualcontent/ui/button4.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 52,
+            "Scale9Height": 48,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 895.488,
+              "Y": 230.016
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.9328,
+              "Y": 0.3594
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 0.0854,
+              "Y": 0.1094
+            },
+            "LeftMargin": 854.496,
+            "RightMargin": 23.52,
+            "TopMargin": 374.976,
+            "BottomMargin": 195.008,
+            "Tag": 22,
+            "ActionTag": -651619571,
+            "Size": {
+              "X": 81.984,
+              "Y": 70.016
+            },
+            "Name": "btn_skip",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "visualcontent/ui/button5_disabled.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "visualcontent/ui/button5_pressed.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "visualcontent/ui/button5.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 52,
+            "Scale9Height": 48,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.4783,
+              "ScaleY": 0.4246
+            },
+            "Position": {
+              "X": 893.76,
+              "Y": 35.776
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.931,
+              "Y": 0.0559
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 0.0854,
+              "Y": 0.1094
+            },
+            "LeftMargin": 854.5471,
+            "RightMargin": 23.4689,
+            "TopMargin": 563.9368,
+            "BottomMargin": 6.0472,
+            "Tag": 23,
+            "ActionTag": -659868142,
+            "Size": {
+              "X": 81.984,
+              "Y": 70.016
+            },
+            "Name": "btn_next",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "visualcontent/ui/button6_disabled.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "visualcontent/ui/button6_pressed.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "visualcontent/ui/button6.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 52,
+            "Scale9Height": 48,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 895.488,
+              "Y": 590.016
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.9328,
+              "Y": 0.9219
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 0.0854,
+              "Y": 0.1094
+            },
+            "LeftMargin": 854.496,
+            "RightMargin": 23.52,
+            "TopMargin": 14.976,
+            "BottomMargin": 555.008,
+            "Tag": 24,
+            "ActionTag": 589363285,
+            "Size": {
+              "X": 81.984,
+              "Y": 70.016
+            },
+            "Name": "btn_options",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "IsCustomSize": true,
+            "FontSize": 28,
+            "LabelText": "",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "visualcontent/fonts/junegull rg.ttf",
+              "Plist": ""
+            },
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 528.96,
+              "Y": 128.0
+            },
+            "Scale": {
+              "ScaleX": 0.8386,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.551,
+              "Y": 0.2
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 0.8021,
+              "Y": 0.25
+            },
+            "LeftMargin": 143.952,
+            "RightMargin": 46.032,
+            "TopMargin": 432.0,
+            "BottomMargin": 48.0,
+            "Tag": 27,
+            "ActionTag": 583590970,
+            "Size": {
+              "X": 770.016,
+              "Y": 160.0
+            },
+            "Name": "txt_dialog",
+            "ctype": "TextObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 117.6955,
+              "Y": 127.9999
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1226,
+              "Y": 0.2
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 117.6955,
+            "RightMargin": 842.3045,
+            "TopMargin": 512.0001,
+            "BottomMargin": 127.9999,
+            "Tag": 7,
+            "ActionTag": 1095695416,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "txt_face",
+            "ctype": "SingleNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "visualcontent/fonts/junegull rg.ttf",
+        "visualcontent/ui/button4.png",
+        "visualcontent/ui/button4_disabled.png",
+        "visualcontent/ui/button4_pressed.png",
+        "visualcontent/ui/button5.png",
+        "visualcontent/ui/button5_disabled.png",
+        "visualcontent/ui/button5_pressed.png",
+        "visualcontent/ui/button6.png",
+        "visualcontent/ui/button6_disabled.png",
+        "visualcontent/ui/button6_pressed.png",
+        "visualcontent/ui/dialogbox01.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

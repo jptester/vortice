@@ -17,11 +17,14 @@
             <Image Name="daniel01.png" />
             <Image Name="samantha01.png" />
           </Folder>
+          <Folder Name="fonts">
+            <TTF Name="junegull rg.ttf" />
+          </Folder>
           <Folder Name="levels">
             <TmxFile Name="level01.tmx" />
           </Folder>
           <Folder Name="particles">
-            <Image Name="fire_particle01.png" />
+            <PlistParticleFile Name="sun.plist" />
           </Folder>
           <Folder Name="terrains" />
           <Folder Name="ui">
@@ -47,11 +50,12 @@
           </Folder>
         </Folder>
         <Project Name="sc_comic.csd" Type="Scene" />
+        <Project Name="sc_comic_ui.csd" Type="Scene" />
+        <Project Name="sc_comic2.csd" Type="Scene" />
         <Project Name="sc_generic.csd" Type="Scene" />
         <Project Name="sc_initial.csd" Type="Scene" />
         <Project Name="sc_level.csd" Type="Scene" />
         <Project Name="sc_main_menu.csd" Type="Scene" />
-        <Project Name="sc_comic2.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>

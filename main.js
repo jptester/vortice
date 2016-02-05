@@ -83,7 +83,7 @@ cc.game.onStart = function(){
 
 		// if debug skip to x scene
 		if ( false && cc.game.config.debugMode == 1 ){
-			//cc.director.runScene(new cc.TransitionFade(1, el.GameLevelManager.getInstance().loadFirstLevelScene()));
+			cc.director.runScene(new cc.TransitionFade(1, el.GameLevelManager.getInstance().loadFirstLevelScene()));
 			//cc.director.runScene(new el.MainMenuScene());
 		}
 		else {

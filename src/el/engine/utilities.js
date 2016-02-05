@@ -131,6 +131,45 @@ el.gPrintObjectPropertiesTypes = function ( object ) {
 }
 
 //
+// This function will read CCS content and put it into a node
+// if there is an animation, it will play it
+//
+el.gGetCCSContent = function(ccsContent, containerNode, lastFrameCallFunc) {
+
+	// optional parameter
+	lastFrameCallFunc = lastFrameCallFunc || null;
+
+	// Get node
+	var json = ccs.load(ccsContent);
+	containerNode.addChild(json.node);
+	
+	// Actions
+	var action;
+
+	// If there is an animation
+	var action = json.action;
+	if (action) {
+		
+		// action must be instance of cc.Action
+		if ( action instanceof ccs.ActionTimeline ) {
+			
+			// run any valid action
+			containerNode.runAction(action);
+			
+			// if there is a valid last frame call function add it
+			if ( lastFrameCallFunc ) {
+				action.setLastFrameCallFunc(lastFrameCallFunc);
+			}
+
+			
+			// Play animation
+			action.gotoFrameAndPlay(0, action.getDuration(), true); //play animation
+		}
+	}				
+
+}
+
+//
 //
 //  Base64 encode / decode
 //  http://www.webtoolkit.info/

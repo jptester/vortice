@@ -21,18 +21,19 @@ var el = el || {};
 el.LevelScene = cc.Scene.extend({
 	
 	// current level info
-	_levelContent: null,
-	_levelLayer: null,
-	_uiLayer: null,
+	_levelContent: null, // main content - all level elements for game levels
+	_levelLayer: null, // All "in-game" contents but UI
+	_uiLayer: null, // UI layer
+	_fgLayer: null, // Last layer - for particles and fx
 	_sc_bg_fx_ID: null,
 	
 	// Specific level content
-	_sc_background: null,
-	_sc_bg_layer: null,
-	_sc_main_layer: null,
-	_sc_front_layer: null,
-	_sc_bg_music: null,
-	_sc_bg_fx: null,
+	_sc_background: null, // background as an image, goes into "_levelLayer" layer
+	_sc_bg_layer: null, // background as a cocos studio screen, goes into "_levelLayer" layer
+	_sc_main_layer: null, // game elements, goes into "_levelLayer" layer
+	_sc_front_layer: null, // front layer, goes into "_levelLayer" layer
+	_sc_bg_music: null, // background music
+	_sc_bg_fx: null, // background sound
 	
 	ctor: function(levelContent) {
 
@@ -53,6 +54,10 @@ el.LevelScene = cc.Scene.extend({
 		// Create an UI layer
 		this._uiLayer = new cc.Layer();
 		this.addChild(this._uiLayer);
+		
+		// Foreground layer (top of everything)
+		this._fgLayer = new cc.Layer();
+		this.addChild(this._fgLayer);
 		
 		// update all inner elements
 		this.updateAllElements();
@@ -174,36 +179,21 @@ el.LevelScene = cc.Scene.extend({
 	},
 	
 	// Fill a layer with content
-	getNodeBasedOnContent: function(ccsContent, layer) {
+	getNodeBasedOnContent: function(ccsContent, layer, lastFrameCallFunc) {
+		
+		// optional parameter
+		lastFrameCallFunc = lastFrameCallFunc || null;
+		
 		// if there is a valid content
-		if ( ccsContent ) {
+		if ( ccsContent && layer ) {
 
 			// remove previous content if any
 			if ( layer.removeAllChildren ) {
 				layer.removeAllChildren();				
 			}
 			
-			// Get node
-			var json = ccs.load(ccsContent);
-			layer.addChild(json.node);
-			
-			// Actions
-			var action;
-
-			// If there is an animation
-			var action = json.action;
-			if (action) {
-				
-				// action must be instance of cc.Action
-				if ( action instanceof ccs.ActionTimeline ) {
-					
-					// run any valid action
-					layer.runAction(action);
-					
-					// Play animation
-					action.gotoFrameAndPlay(0, action.getDuration(), true); //play animation
-				}
-			}				
+			// Get content and add it to the node
+			el.gGetCCSContent(ccsContent, layer, lastFrameCallFunc);
 		}
 	}
 });

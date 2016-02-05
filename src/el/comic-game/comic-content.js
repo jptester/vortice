@@ -157,6 +157,16 @@ el.ComicContent = el.LevelContent.extend({
 		return ( newObj != null && oldObj != newObj ) ? newObj : oldObj;
 	},
 	
+	// Return txt face
+	getTxtFace: function() {
+		return this._txt_face;
+	},
+	
+	// Return txt text
+	getTxtText: function() {
+		return this._txt_text;
+	},
+	
 	// returns a corresponding scene type
 	getNewScene: function() {
 		// if this content code is the same as content ID return this content
